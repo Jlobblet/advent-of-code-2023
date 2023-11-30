@@ -60,7 +60,12 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - [A D compiler of choice](https://dlang.org/download.html)
 - [BQN](https://mlochbaum.github.io/BQN/)
 - [clang](https://clang.llvm.org/)
-- [uiua][https://www.uiua.org/]
+- [uiua](https://www.uiua.org/)
+- [javascript](https://nodejs.org/en/)
+- [typescript](https://www.typescriptlang.org/)
+- [hy](https://docs.hylang.org/en/stable/)
+- [go](https://go.dev/)
+- [HVM](https://github.com/HigherOrderCO/HVM)
 
 ## Usage
 
