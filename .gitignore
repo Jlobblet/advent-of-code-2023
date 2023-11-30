@@ -1,0 +1,13 @@
+# Advent of Code Input Data
+data/
+
+# JetBrains stuff
+.idea/
+
+# Some file that is getting created by ALGOL 68 Genie
+.Random.seed
+
+# Things that Calva likes to create
+.lsp
+.vscode
+.clj-kondo
