@@ -1,28 +1,27 @@
 [] STRING textual digits = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
 
-PROC parse digit = (CHAR c) INT: ((ABS c) - (ABS "0"));
+PROC parse digit = (CHAR c, REF INT i) BOOL: (
+    is digit(c)
+    | i := (ABS c) - (ABS "0"); TRUE
+    | FALSE
+);
 
 PROC parse number = (STRING s, REF INT i) BOOL: (
-    IF UPB s < LWB s THEN
-        FALSE
-    ELIF is digit (s[LWB s]) THEN
-        i := parse digit (s[LWB s]); TRUE
-    ELSE
-        BOOL found := FALSE;
+    (   UPB s < LWB s
+    |   FALSE
+    |:  is digit (s[LWB s])
+    |   parse digit (s[LWB s], i)
+    |   BOOL found := FALSE;
         FOR j FROM LWB textual digits BY 1 TO UPB textual digits
         WHILE NOT found
         DO
-            STRING digit := textual digits[j];
-            IF UPB s - LWB s >= UPB digit - LWB digit THEN
-                STRING sub := s[LWB s : LWB s + UPB digit - LWB digit];
-                IF sub = digit THEN
-                    i := j;
-                    found := TRUE
-                FI
-            FI
+            ( STRING digit := textual digits[j]; UPB s - LWB s >= UPB digit - LWB digit
+            | ( s[LWB s : LWB s + UPB digit - LWB digit] = digit
+            | i := j; found := TRUE)
+            )
         OD;
         found
-    FI
+    )
 );
 
 INT part one := 0, part two := 0;
@@ -37,23 +36,23 @@ WHILE
 DO
     INT first digit := 0, second digit := 0;
     BOOL finished;
-    
+
     # Part one #
     finished := FALSE;
     FOR i FROM LWB line BY 1 TO UPB line
     WHILE NOT finished
     DO
-        (CHAR c := line[i]; is digit(c) | first digit := parse digit (c); finished := TRUE)
+        finished := parse digit (line[i], first digit)
     OD;
 
     finished := FALSE;
     FOR i FROM UPB line BY -1 TO LWB line
     WHILE NOT finished
     DO
-        (CHAR c := line[i]; is digit(c) | second digit := parse digit (c); finished := TRUE)
+        finished := parse digit (line[i], second digit)
     OD;
     part one +:= first digit * 10 + second digit;
-    
+
     # Part two #
     finished := FALSE;
     FOR i FROM LWB line BY 1 TO UPB line
