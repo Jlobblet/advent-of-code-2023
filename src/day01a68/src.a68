@@ -6,7 +6,7 @@ PROC parse digit = (CHAR c, REF INT i) BOOL: (
     | FALSE
 );
 
-PROC parse number = (STRING s, REF INT i) BOOL:(
+PROC parse number = (STRING s, REF INT i) BOOL: (
     UPB s < LWB s          | FALSE
     |: is digit (s[LWB s]) | parse digit (s[LWB s], i)
     |
