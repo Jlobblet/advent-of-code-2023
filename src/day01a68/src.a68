@@ -1,0 +1,24 @@
+PROC parse digit = (CHAR c) INT: ((ABS c) - (ABS "0"));
+
+INT part one := 0, part two := 0;
+WHILE
+    STRING line;
+    BOOL finished reading := FALSE;
+    on logical file end (stand in, (REF FILE f) BOOL: finished reading := TRUE);
+    get(stand in, (line, new line));
+    NOT finished reading
+DO
+    INT low := 0, high := 0;
+    # Part one #
+    FOR i FROM LWB line BY 1 TO UPB line
+    DO
+        (CHAR c := line[i]; is digit(c) | low := parse digit (c))
+    OD;
+    FOR i FROM UPB line BY -1 TO LWB line
+    DO
+        (CHAR c := line[i]; is digit(c) | high := parse digit (c))
+    OD;
+    part one +:= high * 10 + low;
+OD;
+
+print((sum, new line))

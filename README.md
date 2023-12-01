@@ -6,12 +6,13 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 ## Dependencies
 
 - [`make`](https://www.gnu.org/software/make/)
+- [ALGOL 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html)
 
 ## Table of Solution Languages
 
 | Day | Languages |
 | --- | --------- |
-|   1 |           |
+|   1 | Algol 68  |
 |   2 |           |
 |   3 |           |
 |   4 |           |
@@ -56,7 +57,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
     - clojure via leiningen
 - [elixir](https://elixir-lang.org/)
     - requires [erlang](https://www.erlang.org/)
-- [ALGOL 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html)
 - [A D compiler of choice](https://dlang.org/download.html)
 - [BQN](https://mlochbaum.github.io/BQN/)
 - [clang](https://clang.llvm.org/)
@@ -70,30 +70,3 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 ## Usage
 
 Run the desired day via `make`.
-
-                  -----
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
