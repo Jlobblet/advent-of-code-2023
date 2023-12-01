@@ -7,8 +7,8 @@ PROC parse digit = (CHAR c, REF INT i) BOOL: (
 );
 
 PROC parse number = (STRING s, REF INT i) BOOL: (
-    UPB s < LWB s          | FALSE
-    |: is digit (s[LWB s]) | parse digit (s[LWB s], i)
+    UPB s < LWB s                | FALSE
+    |: parse digit (s[LWB s], i) | TRUE
     |
         BOOL found := FALSE;
         FOR j FROM LWB textual digits BY 1 TO UPB textual digits
