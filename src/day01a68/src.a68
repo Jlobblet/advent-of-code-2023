@@ -34,13 +34,16 @@ WHILE
     NOT finished reading
 DO
     INT first digit := 0, second digit := 0;
-    BOOL finished := FALSE;
+    BOOL finished;
+    
     # Part one #
+    finished := FALSE;
     FOR i FROM LWB line BY 1 TO UPB line
     WHILE NOT finished
     DO
         (CHAR c := line[i]; is digit(c) | first digit := parse digit (c); finished := TRUE)
     OD;
+
     finished := FALSE;
     FOR i FROM UPB line BY -1 TO LWB line
     WHILE NOT finished
@@ -48,6 +51,7 @@ DO
         (CHAR c := line[i]; is digit(c) | second digit := parse digit (c); finished := TRUE)
     OD;
     part one +:= first digit * 10 + second digit;
+    
     # Part two #
     finished := FALSE;
     FOR i FROM LWB line BY 1 TO UPB line
