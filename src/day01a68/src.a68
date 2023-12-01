@@ -1,6 +1,31 @@
+[] STRING textual digits = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
+
 PROC parse digit = (CHAR c) INT: ((ABS c) - (ABS "0"));
 
-INT part one := 0;
+PROC parse number = (STRING s, REF INT i) BOOL: (
+    IF UPB s < LWB s THEN
+        FALSE
+    ELIF is digit (s[LWB s]) THEN
+        i := parse digit (s[LWB s]); TRUE
+    ELSE
+        BOOL found := FALSE;
+        FOR j FROM LWB textual digits BY 1 TO UPB textual digits
+        WHILE NOT found
+        DO
+            STRING digit := textual digits[j];
+            IF UPB s - LWB s >= UPB digit - LWB digit THEN
+                STRING sub := s[LWB s : LWB s + UPB digit - LWB digit];
+                IF sub = digit THEN
+                    i := j;
+                    found := TRUE
+                FI
+            FI
+        OD;
+        found
+    FI
+);
+
+INT part one := 0, part two := 0;
 WHILE
     STRING line;
     BOOL finished reading := FALSE;
@@ -20,9 +45,24 @@ DO
     FOR i FROM UPB line BY -1 TO LWB line
     WHILE NOT finished
     DO
-        (CHAR c := line[i]; is digit(c) | print(c); high := parse digit (c); finished := TRUE)
+        (CHAR c := line[i]; is digit(c) | high := parse digit (c); finished := TRUE)
     OD;
-    part one +:= low * 10 + high
+    part one +:= low * 10 + high;
+    # Part two #
+    finished := FALSE;
+    FOR i FROM LWB line BY 1 TO UPB line
+    WHILE NOT finished
+    DO
+        finished := parse number (line[i : UPB line], low)
+    OD;
+
+    finished := FALSE;
+    FOR i FROM UPB line BY -1 TO LWB line
+    WHILE NOT finished
+    DO
+        finished := parse number (line[i : UPB line], high)
+    OD;
+    part two +:= low * 10 + high
 OD;
 
-print((part one, new line))
+print((part one, part two, new line))
