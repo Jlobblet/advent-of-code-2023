@@ -33,36 +33,36 @@ WHILE
     get(stand in, (line, new line));
     NOT finished reading
 DO
-    INT low := 0, high := 0;
+    INT first digit := 0, second digit := 0;
     BOOL finished := FALSE;
     # Part one #
     FOR i FROM LWB line BY 1 TO UPB line
     WHILE NOT finished
     DO
-        (CHAR c := line[i]; is digit(c) | low := parse digit (c); finished := TRUE)
+        (CHAR c := line[i]; is digit(c) | first digit := parse digit (c); finished := TRUE)
     OD;
     finished := FALSE;
     FOR i FROM UPB line BY -1 TO LWB line
     WHILE NOT finished
     DO
-        (CHAR c := line[i]; is digit(c) | high := parse digit (c); finished := TRUE)
+        (CHAR c := line[i]; is digit(c) | second digit := parse digit (c); finished := TRUE)
     OD;
-    part one +:= low * 10 + high;
+    part one +:= first digit * 10 + second digit;
     # Part two #
     finished := FALSE;
     FOR i FROM LWB line BY 1 TO UPB line
     WHILE NOT finished
     DO
-        finished := parse number (line[i : UPB line], low)
+        finished := parse number (line[i : UPB line], first digit)
     OD;
 
     finished := FALSE;
     FOR i FROM UPB line BY -1 TO LWB line
     WHILE NOT finished
     DO
-        finished := parse number (line[i : UPB line], high)
+        finished := parse number (line[i : UPB line], second digit)
     OD;
-    part two +:= low * 10 + high
+    part two +:= first digit * 10 + second digit
 OD;
 
 print((part one, part two, new line))
