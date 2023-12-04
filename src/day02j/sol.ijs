@@ -7,7 +7,7 @@ parse =: {{
     y =. ', '&splitstring L: 0 y
     NB. split on spaces and parse numbers
     y =. ((([: ". 0 {:: ]) ; ([: {. 1 {:: ])) ' ' splitstring ]) L:0 y
-    NB. unbox and transpose
+    NB. raze and transpose
     y =. |:@:; L: 2 > L: 2 y
     y
 }}
