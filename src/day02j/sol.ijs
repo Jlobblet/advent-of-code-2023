@@ -12,18 +12,15 @@ parse =: {{
     y
 }}
 
-p1g =: {{
+p =: {{
     'scores colours' =. y
-    *./ 12 13 14 >: ('rgb' i. ~. colours) {^:_1 colours >.//. scores
+    ('rgb' i. ~. colours) {^:_1 colours >.//. scores
 }}
 
+p1g =: [: *./ 12 13 14 >: p
 p1 =: {{ +/ (# >:@i.@#) ; p1g L: 1 y }}
 
-p2g =: {{
-    'scores colours' =. y
-    */ ('rgb' i. ~. colours) {^:_1 colours >.//. scores
-}}
-
+p2g =: [: */ p
 p2 =: {{ +/ ; p2g L: 1 y }}
 
 d =: parse fread getenv 'INPUT'
