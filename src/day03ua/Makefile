@@ -5,4 +5,5 @@ INPUT=../../data/03.txt
 UIUA=uiua
 
 run:
-	INPUT=$(INPUT) $(UIUA) run src.ua
+	INPUT=$(INPUT) $(UIUA) run p1.ua
+	INPUT=$(INPUT) $(UIUA) run p2.ua
