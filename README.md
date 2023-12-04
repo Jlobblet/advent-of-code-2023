@@ -7,6 +7,8 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 
 - [`make`](https://www.gnu.org/software/make/)
 - [ALGOL 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html)
+- [uiua](https://www.uiua.org/)
+
 
 ## Table of Solution Languages
 
@@ -14,7 +16,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 | --- | --------- |
 |   1 | Algol 68  |
 |   2 |           |
-|   3 |           |
+|   3 | uiua      |
 |   4 |           |
 |   5 |           |
 |   6 |           |
@@ -60,7 +62,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - [A D compiler of choice](https://dlang.org/download.html)
 - [BQN](https://mlochbaum.github.io/BQN/)
 - [clang](https://clang.llvm.org/)
-- [uiua](https://www.uiua.org/)
 - [javascript](https://nodejs.org/en/)
 - [typescript](https://www.typescriptlang.org/)
 - [hy](https://docs.hylang.org/en/stable/)
