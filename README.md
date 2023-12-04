@@ -7,6 +7,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 
 - [`make`](https://www.gnu.org/software/make/)
 - [ALGOL 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html)
+- [J](https://www.jsoftware.com)
 - [uiua](https://www.uiua.org/)
 
 
@@ -15,7 +16,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 | Day | Languages |
 | --- | --------- |
 |   1 | Algol 68  |
-|   2 |           |
+|   2 | J         |
 |   3 | uiua      |
 |   4 |           |
 |   5 |           |
@@ -43,7 +44,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 
 ### Likely dependencies for future days
 
-- [J](https://www.jsoftware.com)
 - [gcc-9](https://gcc.gnu.org/)
 - [rust](https://www.rust-lang.org/)
 - [dotnet](https://dotnet.microsoft.com/en-us/)
