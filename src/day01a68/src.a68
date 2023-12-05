@@ -1,5 +1,11 @@
 [] STRING textual digits = ("one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
 
+PROC starts with = (STRING haystack, STRING needle) BOOL: (
+    UPB haystack - LWB haystack >= UPB needle - LWB needle
+    | haystack[LWB haystack : LWB haystack + UPB needle - LWB needle] = needle
+    | FALSE
+);
+
 PROC parse digit = (CHAR c, REF INT i) BOOL: (
     is digit(c)
     | i := (ABS c) - (ABS "0"); TRUE
@@ -14,10 +20,7 @@ PROC parse number = (STRING s, REF INT i) BOOL: (
         FOR j FROM LWB textual digits BY 1 TO UPB textual digits
         WHILE NOT found
         DO
-            ( STRING digit := textual digits[j];
-              UPB s - LWB s >= UPB digit - LWB digit
-              | (s[LWB s : LWB s + UPB digit - LWB digit] = digit
-                | i := j; found := TRUE))
+            (starts with (s, textual digits[j]) | i := j; found := TRUE)
         OD;
         found
 );
