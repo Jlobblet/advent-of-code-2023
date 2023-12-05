@@ -5,4 +5,4 @@ IJ=ijconsole
 .PHONY: run
 
 run:
-	INPUT=$(INPUT) $(IJ) sol.ijs 
+	INPUT=$(INPUT) $(IJ) sol.ijs
