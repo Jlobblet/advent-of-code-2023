@@ -18,7 +18,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 |   1 | Algol 68  |
 |   2 | J         |
 |   3 | uiua      |
-|   4 |           |
+|   4 | J         |
 |   5 |           |
 |   6 |           |
 |   7 |           |
