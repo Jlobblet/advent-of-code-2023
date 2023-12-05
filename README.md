@@ -9,37 +9,38 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - [ALGOL 68 Genie](https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html)
 - [J](https://www.jsoftware.com)
 - [uiua](https://www.uiua.org/)
-
+- JVM stuff, recommended via [SDKMAN!](https://sdkman.io/)
+    - clojure via leiningen
 
 ## Table of Solution Languages
 
-| Day | Languages |
-| --- | --------- |
-|   1 | Algol 68  |
-|   2 | J         |
-|   3 | uiua      |
-|   4 | J         |
-|   5 |           |
-|   6 |           |
-|   7 |           |
-|   8 |           |
-|   9 |           |
-|  10 |           |
-|  11 |           |
-|  12 |           |
-|  13 |           |
-|  14 |           |
-|  15 |           |
-|  16 |           |
-|  17 |           |
-|  18 |           |
-|  19 |           |
-|  20 |           |
-|  21 |           |
-|  22 |           |
-|  23 |           |
-|  24 |           |
-|  25 |           |
+| Day | Languages   |
+| --- | ---------- |
+|   1 | Algol 68   |
+|   2 | J          |
+|   3 | uiua       |
+|   4 | J, Clojure |
+|   5 |            |
+|   6 |            |
+|   7 |            |
+|   8 |            |
+|   9 |            |
+|  10 |            |
+|  11 |            |
+|  12 |            |
+|  13 |            |
+|  14 |            |
+|  15 |            |
+|  16 |            |
+|  17 |            |
+|  18 |            |
+|  19 |            |
+|  20 |            |
+|  21 |            |
+|  22 |            |
+|  23 |            |
+|  24 |            |
+|  25 |            |
 
 
 ### Likely dependencies for future days
@@ -56,7 +57,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
     - java
     - gradle
     - kotlin
-    - clojure via leiningen
 - [elixir](https://elixir-lang.org/)
     - requires [erlang](https://www.erlang.org/)
 - [A D compiler of choice](https://dlang.org/download.html)
