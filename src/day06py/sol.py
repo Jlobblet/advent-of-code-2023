@@ -8,18 +8,26 @@ def ways_to_win(time, distance):
     return time - 2 * factor + 1
 
 
-def parse_line(line):
+def parse_line_1(line):
     return [int(x) for x in line.split(": ")[-1].split()]
 
 
-def parse(input):
+def parse_line_2(line):
+    return [int(line.split(": ")[-1].replace(" ", ""))]
+
+
+def parse(input, parse_line):
     l1, l2 = input.strip().split("\n")
     l1, l2 = parse_line(l1), parse_line(l2)
     return zip(l1, l2)
 
 
 def part1(input):
-    return reduce(mul, starmap(ways_to_win, parse(input)))
+    return reduce(mul, starmap(ways_to_win, parse(input, parse_line_1)))
+
+
+def part2(input):
+    return reduce(mul, starmap(ways_to_win, parse(input, parse_line_2)))
 
 
 def main():
@@ -28,6 +36,7 @@ def main():
         input = file.read()
 
     print(part1(input))
+    print(part2(input))
     
 
 if __name__ == "__main__":
