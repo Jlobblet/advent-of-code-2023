@@ -12,6 +12,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - JVM stuff, recommended via [SDKMAN!](https://sdkman.io/)
     - clojure via leiningen
 - [python](https://www.python.org/)
+- [dotnet](https://dotnet.microsoft.com/en-us/)
 
 ## Table of Solution Languages
 
@@ -23,7 +24,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 |   4 | J, Clojure |
 |   5 |            |
 |   6 | Python     |
-|   7 |            |
+|   7 | F#         |
 |   8 |            |
 |   9 |            |
 |  10 |            |
@@ -48,7 +49,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 
 - [gcc-9](https://gcc.gnu.org/)
 - [rust](https://www.rust-lang.org/)
-- [dotnet](https://dotnet.microsoft.com/en-us/)
 - [factor](https://factorcode.org/)
 - [ghc](https://www.haskell.org/ghcup/)
 - [agda](https://wiki.portal.chalmers.se/agda/pmwiki.php)
