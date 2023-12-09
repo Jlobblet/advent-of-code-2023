@@ -1,4 +1,4 @@
-import Lib (parseState, part1)
+import Lib (parseDocument, part1)
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -13,7 +13,7 @@ unitTests = testGroup "Unit tests" [example1Test, example2Test]
 
 exampleTest :: String -> String -> Int -> TestTree
 exampleTest name input expected =
-  testCase name $ part1 (parseState input) @?= expected
+  testCase name $ part1 (parseDocument input) @?= expected
 
 example1Test :: TestTree
 example1Test = exampleTest "Example 1" example 2
