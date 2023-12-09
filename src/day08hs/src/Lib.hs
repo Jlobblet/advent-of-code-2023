@@ -1,16 +1,18 @@
 module Lib
-  ( documentParser,
+  ( Document,
+    documentParser,
     parseDocument,
     part1,
+    part2,
   )
 where
 
 import qualified Data.CircularList as C
 import Data.Either (fromRight)
-import Data.List (unfoldr)
+import Data.List (isSuffixOf, unfoldr)
 import qualified Data.Map.Strict as M
 import Text.Parsec (Parsec, count, many1, parse, sepEndBy, (<|>))
-import Text.Parsec.Char (char, newline, spaces, string, upper)
+import Text.Parsec.Char (alphaNum, char, newline, spaces, string)
 
 newtype Element = Element String deriving (Show, Eq, Ord)
 
@@ -53,21 +55,31 @@ documentParser = do
       right <- elementParser
       _ <- string ")"
       return (source, Node left right)
-    elementParser = Element <$> count 3 upper
+    elementParser = Element <$> count 3 alphaNum
 
 parseDocument :: String -> Document
 parseDocument input = fromRight undefined (parse documentParser "" input)
 
-part1 :: Document -> Int
-part1 d = length $ unfoldr f initial
+nSteps :: Element -> (Element -> Bool) -> Document -> Int
+nSteps start isZ d = length $ unfoldr f $ State d start
   where
-    initial = State d (Element "AAA")
-    f (State _ (Element "ZZZ")) = Nothing
     f (State (Document (Network n) ds) e) =
-      Just (e', State (Document (Network n) (C.rotR ds)) e')
+      if isZ e
+        then Nothing
+        else Just (e', State (Document (Network n) (C.rotR ds)) e')
       where
         (Node l r) = n M.! e
         e' = case C.focus ds of
           Just L -> l
           Just R -> r
           Nothing -> undefined
+
+part1 :: Document -> Int
+part1 = nSteps (Element "AAA") (== Element "ZZZ")
+
+part2 :: Document -> Int
+part2 d@(Document (Network n) _) = k
+  where
+    isZ (Element e) = "Z" `isSuffixOf` e
+    isA (Element e) = "A" `isSuffixOf` e
+    k = foldr1 lcm $ fmap (\i -> nSteps i isZ d) $ filter isA $ M.keys n
