@@ -13,10 +13,12 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
     - clojure via leiningen
 - [python](https://www.python.org/)
 - [dotnet](https://dotnet.microsoft.com/en-us/)
-
+- [ghc](https://www.haskell.org/ghcup/)
+    - [stack](https://docs.haskellstack.org/en/stable/)
+ 
 ## Table of Solution Languages
 
-| Day | Languages   |
+| Day | Languages  |
 | --- | ---------- |
 |   1 | Algol 68   |
 |   2 | J          |
@@ -25,7 +27,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 |   5 |            |
 |   6 | Python     |
 |   7 | F#         |
-|   8 |            |
+|   8 | Haskell    |
 |   9 |            |
 |  10 |            |
 |  11 |            |
@@ -50,7 +52,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - [gcc-9](https://gcc.gnu.org/)
 - [rust](https://www.rust-lang.org/)
 - [factor](https://factorcode.org/)
-- [ghc](https://www.haskell.org/ghcup/)
 - [agda](https://wiki.portal.chalmers.se/agda/pmwiki.php)
 - [numpy](https://numpy.org/)
 - JVM stuff, recommended via [SDKMAN!](https://sdkman.io/)
