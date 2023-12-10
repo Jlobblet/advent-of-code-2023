@@ -23,9 +23,6 @@ long long extrapolate(std::string line) {
   }
 
   long long number;
-  line_stream >> number;
-  sequence.push_back(number);
-
   while (line_stream >> number) {
     sequence.push_back(number);
     for (auto i = sequence.end() - 2; i >= sequence.begin(); --i) {
