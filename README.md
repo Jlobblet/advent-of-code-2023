@@ -28,7 +28,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 |   6 | Python     |
 |   7 | F#         |
 |   8 | Haskell    |
-|   9 |            |
+|   9 | J          |
 |  10 |            |
 |  11 |            |
 |  12 |            |

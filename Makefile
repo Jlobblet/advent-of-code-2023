@@ -1,4 +1,4 @@
-.PHONY: day01a68 day02j day03ua day04clj day04j day06py day07fs day08hs
+.PHONY: day01a68 day02j day03ua day04clj day04j day06py day07fs day08hs day09j
 
 day01a68:
 	$(MAKE) -C src/day01a68
@@ -23,3 +23,6 @@ day07fs:
 
 day08hs:
 	$(MAKE) -C src/day08hs
+
+day09j:
+	$(MAKE) -C src/day09j
