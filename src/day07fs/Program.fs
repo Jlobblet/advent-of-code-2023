@@ -2,6 +2,8 @@
 open System.IO
 open System
 
+let inline uncurry f (a, b) = f a b
+
 type Card =
     | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten
     | Jack | Queen | King | Ace
@@ -71,12 +73,12 @@ type HandType =
 
             let jokers =
                 counts
-                |> List.tryFind (fun (c, _) -> c = Joker)
+                |> List.tryFind (fst >> ((=) Joker))
                 |> Option.map snd
                 |> Option.defaultValue 0
 
             counts
-            |> List.filter (fun (c, _) -> c <> Joker)
+            |> List.filter (fst >> ((<>) Joker))
             |> List.map snd
             |> List.sortDescending
             |> function
@@ -113,8 +115,8 @@ type Hand =
             | 0 ->
                 (this.Cards, other.Cards)
                 ||> Seq.zip 
-                |> Seq.filter (fun (c1, c2) -> c1 <> c2)
-                |> Seq.map (fun (c1, c2) -> compare c1 c2)
+                |> Seq.filter (uncurry (<>))
+                |> Seq.map (uncurry compare)
                 |> Seq.tryHead
                 |> Option.defaultValue 0
             | i -> i
@@ -142,7 +144,6 @@ let part pl =
     >> printfn "%d"
 
 let raw = GetEnvironmentVariable("INPUT") |> File.ReadAllLines
-
 
 part (parseLine Card.Parse HandType.ofCards) raw
 part (parseLine (Card.Parse >> JokerCard.ofCard) HandType.ofJokerCards) raw
