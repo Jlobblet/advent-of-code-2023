@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdlib>
+#include <cstdint>
 #include <cstdio>
 #include <unistd.h>
 #include <fcntl.h>
@@ -12,19 +13,14 @@
 #include <sstream>
 #include <vector>
 
-long long extrapolate(std::istringstream& stream) {
-  static std::optional<std::size_t> length = std::nullopt;
+int_fast32_t extrapolate(std::istringstream& stream) {
+  int_fast32_t sequence[21] = {0};
+  std::size_t index = 0;
 
-  std::vector<long long> sequence;
-
-  if (length.has_value()) {
-    sequence.reserve(length.value());
-  }
-
-  long long number;
+  int_fast32_t number;
   while (stream >> number) {
-    sequence.push_back(number);
-    for (auto i = sequence.end() - 2; i >= sequence.begin(); --i) {
+    sequence[index++] = number;
+    for (auto i = sequence + index - 2; i >= sequence; --i) {
       *i = *(i + 1) - *i;
     }
     if (stream.peek() == '\n') {
@@ -33,11 +29,7 @@ long long extrapolate(std::istringstream& stream) {
     }
   }
 
-  if (!length.has_value()) {
-    length = sequence.size();
-  }
-
-  return std::accumulate(sequence.begin(), sequence.end(), 0LL);
+  return std::accumulate(sequence, sequence + index, 0LL);
 }
 
 int main() {
@@ -69,7 +61,7 @@ int main() {
 
   auto input = std::istringstream(addr);
   auto start = std::chrono::high_resolution_clock::now();
-  long long total = 0;
+  int_fast32_t total = 0;
   while (input.peek() != '\n' && input.peek() != EOF) {
     total += extrapolate(std::ref(input));
   }
