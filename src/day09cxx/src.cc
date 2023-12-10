@@ -12,10 +12,9 @@
 #include <sstream>
 #include <vector>
 
-long long extrapolate(std::string line) {
+long long extrapolate(std::istringstream& stream) {
   static std::optional<std::size_t> length = std::nullopt;
 
-  std::istringstream line_stream(line);
   std::vector<long long> sequence;
 
   if (length.has_value()) {
@@ -23,10 +22,14 @@ long long extrapolate(std::string line) {
   }
 
   long long number;
-  while (line_stream >> number) {
+  while (stream >> number) {
     sequence.push_back(number);
     for (auto i = sequence.end() - 2; i >= sequence.begin(); --i) {
       *i = *(i + 1) - *i;
+    }
+    if (stream.peek() == '\n') {
+      stream.get();
+      break;
     }
   }
 
@@ -56,23 +59,26 @@ int main() {
 
   auto size = st.st_size;
   char* addr = (char *)mmap(nullptr, size, PROT_READ, MAP_PRIVATE, fd, 0);
+  madvise(addr, size, MADV_SEQUENTIAL);
+  madvise(addr, size, MADV_WILLNEED);
+  madvise(addr, size, MADV_HUGEPAGE);
   if (addr == MAP_FAILED) {
     close(fd);
     return EXIT_FAILURE;
   }
 
-  auto input = std::istringstream(std::string(addr, size));
-  std::string line;
+  auto input = std::istringstream(addr);
   auto start = std::chrono::high_resolution_clock::now();
   long long total = 0;
-  while (std::getline(input, line)) {
-    total += extrapolate(line);
+  while (input.peek() != '\n' && input.peek() != EOF) {
+    total += extrapolate(std::ref(input));
   }
   auto end = std::chrono::high_resolution_clock::now();
 
   auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
   std::cout << duration << std::endl;
   std::cout << total << std::endl;
+  munmap(addr, size);
   close(fd);
 
   return EXIT_SUCCESS;
