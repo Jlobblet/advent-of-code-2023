@@ -15,7 +15,8 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 - [dotnet](https://dotnet.microsoft.com/en-us/)
 - [ghc](https://www.haskell.org/ghcup/)
     - [stack](https://docs.haskellstack.org/en/stable/)
- 
+- [gcc-13](https://gcc.gnu.org/)
+
 ## Table of Solution Languages
 
 | Day | Languages  |
@@ -28,7 +29,7 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 |   6 | Python     |
 |   7 | F#         |
 |   8 | Haskell    |
-|   9 | J          |
+|   9 | J, C++     |
 |  10 |            |
 |  11 |            |
 |  12 |            |
@@ -49,7 +50,6 @@ Similarly to last year, I expect to write a variety of languages as I fancy.
 
 ### Likely dependencies for future days
 
-- [gcc-9](https://gcc.gnu.org/)
 - [rust](https://www.rust-lang.org/)
 - [factor](https://factorcode.org/)
 - [agda](https://wiki.portal.chalmers.se/agda/pmwiki.php)
